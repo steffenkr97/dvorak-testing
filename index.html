@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tastaturlayout-Tester (Dark Mode)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tastaturlayout-Tester</h1>
+        
+        <div class="layout-selection">
+            <label for="layout-select">Tastaturlayout wählen:</label>
+            <select id="layout-select">
+                <option value="qwertz">QWERTZ (Deutsch)</option>
+                <option value="dvorak">DVORAK Typ 2 für macOS</option>
+            </select>
+        </div>
+
+        <div class="test-area">
+            <h2>Testbereich</h2>
+            <p>Tippe hier, um das ausgewählte Layout zu testen:</p>
+            <textarea id="input-field" rows="5" placeholder="Zum Tippen hier klicken..."></textarea>
+            
+            <div class="output">
+                <h3>Ausgabe (gemäß gewähltem Layout):</h3>
+                <div id="output-text"></div>
+            </div>
+        </div>
+
+        <div class="virtual-keyboard">
+            <h2>Virtuelle Tastatur</h2>
+            <p class="keyboard-info">Linke Ecke: Shift-Zeichen</p>
+            <div id="keyboard-container"></div>
+        </div>
+        
+        <div class="keyboard-instructions">
+            <h3>Tastenkombinationen</h3>
+            <ul>
+                <li><strong>Shift + Taste</strong>: Großbuchstaben und Sonderzeichen in der linken oberen Ecke</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="keyboard.js"></script>
+</body>
+</html>
