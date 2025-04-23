@@ -394,6 +394,9 @@ function init() {
     // Text-Eingabefeld
     const inputField = document.getElementById('input-field');
     
+    // Aktiver Text Element
+    const activeTextElement = document.getElementById('active-text');
+    
     // Text-Eingabefeld initial fokussieren
     inputField.focus();
     
@@ -449,16 +452,22 @@ function init() {
         updateOutput(this.value, document.getElementById('layout-select').value);
     });
     
-    // Event-Listener für "Kopieren"-Buttons
-    document.querySelectorAll('.copy-btn').forEach(btn => {
+    // Event-Listener für "Als aktiven Text setzen"-Buttons (frühere "Kopieren"-Buttons)
+    document.querySelectorAll('.set-active-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const text = this.getAttribute('data-text');
-            inputField.value = text;
-            updateOutput(text, document.getElementById('layout-select').value);
+            
+            // Text als aktiven Text setzen
+            activeTextElement.textContent = text;
+            
+            // Das Eingabefeld leeren und fokussieren
+            inputField.value = '';
+            updateOutput('', document.getElementById('layout-select').value);
             inputField.focus();
+            
             // Text-Feedback für den Button
             const originalText = this.textContent;
-            this.textContent = 'Kopiert!';
+            this.textContent = 'Aktiv gesetzt!';
             setTimeout(() => {
                 this.textContent = originalText;
             }, 1000);
@@ -485,3 +494,4 @@ function init() {
 
 // Starten der Anwendung, wenn DOM geladen ist
 document.addEventListener('DOMContentLoaded', init);
+

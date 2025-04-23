@@ -18,71 +18,6 @@
             </select>
         </div>
 
-        <div class="test-area">
-            <h2>Testbereich</h2>
-            <p>Tippe hier, um das ausgewählte Layout zu testen:</p>
-            <textarea id="input-field" rows="5" placeholder="Zum Tippen hier klicken..."></textarea>
-            
-            <div class="output">
-                <h3>Ausgabe (gemäß gewähltem Layout):</h3>
-                <div id="output-text"></div>
-            </div>
-        </div>
-
-        <div class="practice-area">
-            <h2>Übungsbereich</h2>
-            <p>Hier findest du Übungstexte für dein Training. Klicke auf einen Text, um ihn im Testbereich zu üben:</p>
-            
-            <div class="practice-categories">
-                <div class="practice-category">
-                    <h3>Grundlagen für DVORAK</h3>
-                    <div class="practice-item">
-                        <h4>Mittlere Reihe (Homerow)</h4>
-                        <pre class="practice-text">aoeu aoeu aoeu htns htns htns aoeu htns aoeu htns</pre>
-                        <button class="copy-btn" data-text="aoeu aoeu aoeu htns htns htns aoeu htns aoeu htns">Kopieren</button>
-                    </div>
-                    <div class="practice-item">
-                        <h4>Fingertraining Mittlere Reihe</h4>
-                        <pre class="practice-text">aoeuidhtns aoeuidhtns aoeuidhtns aoeuidhtns</pre>
-                        <button class="copy-btn" data-text="aoeuidhtns aoeuidhtns aoeuidhtns aoeuidhtns">Kopieren</button>
-                    </div>
-                    <div class="practice-item">
-                        <h4>Obere/Untere Reihe</h4>
-                        <pre class="practice-text">pyfgcrl pyfgcrl pyfgcrl pyfgcrl
-qjkxbmwv qjkxbmwv qjkxbmwv qjkxbmwv</pre>
-                        <button class="copy-btn" data-text="pyfgcrl pyfgcrl pyfgcrl pyfgcrl\nqjkxbmwv qjkxbmwv qjkxbmwv qjkxbmwv">Kopieren</button>
-                    </div>
-                    <div class="practice-item">
-                        <h4>Kombinationen</h4>
-                        <pre class="practice-text">uia ens dht rlo pfy gbm wvz jkx
-uia ens dht rlo uia ens dht rlo</pre>
-                        <button class="copy-btn" data-text="uia ens dht rlo pfy gbm wvz jkx\nuia ens dht rlo uia ens dht rlo">Kopieren</button>
-                    </div>
-                </div>
-                
-                <div class="practice-category">
-                    <h3>Kurze Sätze</h3>
-                    <div class="practice-item">
-                        <h4>Einfacher Satz</h4>
-                        <pre class="practice-text">Der schnelle braune Fuchs springt über den faulen Hund.</pre>
-                        <button class="copy-btn" data-text="Der schnelle braune Fuchs springt über den faulen Hund.">Kopieren</button>
-                    </div>
-                    <div class="practice-item">
-                        <h4>Kindervers</h4>
-                        <pre class="practice-text">Alle meine Entchen schwimmen auf dem See,
-Köpfchen in das Wasser, Schwänzchen in die Höh.</pre>
-                        <button class="copy-btn" data-text="Alle meine Entchen schwimmen auf dem See,\nKöpfchen in das Wasser, Schwänzchen in die Höh.">Kopieren</button>
-                    </div>
-                    <div class="practice-item">
-                        <h4>Deutsche Buchstaben</h4>
-                        <pre class="practice-text">Jeder wackere Bayer vertilgt bequem zwo Pfund Kalbshaxen.
-Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Podium.</pre>
-                        <button class="copy-btn" data-text="Jeder wackere Bayer vertilgt bequem zwo Pfund Kalbshaxen.\nDie heiße Zypernsonne quälte Max und Victoria ja böse auf dem Podium.">Kopieren</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="virtual-keyboard">
             <h2>Virtuelle Tastatur</h2>
             <p class="keyboard-info">Linke Ecke: Shift-Zeichen</p>
@@ -94,6 +29,77 @@ Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Podium.</pre>
             <ul>
                 <li><strong>Shift + Taste</strong>: Großbuchstaben und Sonderzeichen in der linken oberen Ecke</li>
             </ul>
+        </div>
+
+        <div class="test-area">
+            <h2>Testbereich</h2>
+            
+            <div class="active-text-container">
+                <h3>Aktiver Text:</h3>
+                <div id="active-text" class="active-text">Zum Tippen hier klicken oder einen Übungstext auswählen...</div>
+            </div>
+            
+            <p>Tippe hier, um das ausgewählte Layout zu testen:</p>
+            <textarea id="input-field" rows="5" placeholder="Zum Tippen hier klicken..."></textarea>
+            
+            <div class="output">
+                <h3>Ausgabe (gemäß gewähltem Layout):</h3>
+                <div id="output-text"></div>
+            </div>
+        </div>
+
+        <div class="practice-area">
+            <h2>Übungsbereich</h2>
+            <p>Hier findest du Übungstexte für dein Training. Klicke auf einen Text, um ihn als aktiven Text zu üben:</p>
+            
+            <div class="practice-categories">
+                <div class="practice-category">
+                    <h3>Grundlagen für DVORAK</h3>
+                    <div class="practice-item">
+                        <h4>Mittlere Reihe (Homerow)</h4>
+                        <pre class="practice-text">aoeu aoeu aoeu htns htns htns aoeu htns aoeu htns</pre>
+                        <button class="set-active-btn" data-text="aoeu aoeu aoeu htns htns htns aoeu htns aoeu htns">Als aktiven Text setzen</button>
+                    </div>
+                    <div class="practice-item">
+                        <h4>Fingertraining Mittlere Reihe</h4>
+                        <pre class="practice-text">aoeuidhtns aoeuidhtns aoeuidhtns aoeuidhtns</pre>
+                        <button class="set-active-btn" data-text="aoeuidhtns aoeuidhtns aoeuidhtns aoeuidhtns">Als aktiven Text setzen</button>
+                    </div>
+                    <div class="practice-item">
+                        <h4>Obere/Untere Reihe</h4>
+                        <pre class="practice-text">pyfgcrl pyfgcrl pyfgcrl pyfgcrl
+qjkxbmwv qjkxbmwv qjkxbmwv qjkxbmwv</pre>
+                        <button class="set-active-btn" data-text="pyfgcrl pyfgcrl pyfgcrl pyfgcrl\nqjkxbmwv qjkxbmwv qjkxbmwv qjkxbmwv">Als aktiven Text setzen</button>
+                    </div>
+                    <div class="practice-item">
+                        <h4>Kombinationen</h4>
+                        <pre class="practice-text">uia ens dht rlo pfy gbm wvz jkx
+uia ens dht rlo uia ens dht rlo</pre>
+                        <button class="set-active-btn" data-text="uia ens dht rlo pfy gbm wvz jkx\nuia ens dht rlo uia ens dht rlo">Als aktiven Text setzen</button>
+                    </div>
+                </div>
+                
+                <div class="practice-category">
+                    <h3>Kurze Sätze</h3>
+                    <div class="practice-item">
+                        <h4>Einfacher Satz</h4>
+                        <pre class="practice-text">Der schnelle braune Fuchs springt über den faulen Hund.</pre>
+                        <button class="set-active-btn" data-text="Der schnelle braune Fuchs springt über den faulen Hund.">Als aktiven Text setzen</button>
+                    </div>
+                    <div class="practice-item">
+                        <h4>Kindervers</h4>
+                        <pre class="practice-text">Alle meine Entchen schwimmen auf dem See,
+Köpfchen in das Wasser, Schwänzchen in die Höh.</pre>
+                        <button class="set-active-btn" data-text="Alle meine Entchen schwimmen auf dem See,\nKöpfchen in das Wasser, Schwänzchen in die Höh.">Als aktiven Text setzen</button>
+                    </div>
+                    <div class="practice-item">
+                        <h4>Deutsche Buchstaben</h4>
+                        <pre class="practice-text">Jeder wackere Bayer vertilgt bequem zwo Pfund Kalbshaxen.
+Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Podium.</pre>
+                        <button class="set-active-btn" data-text="Jeder wackere Bayer vertilgt bequem zwo Pfund Kalbshaxen.\nDie heiße Zypernsonne quälte Max und Victoria ja böse auf dem Podium.">Als aktiven Text setzen</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

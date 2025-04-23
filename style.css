@@ -254,6 +254,45 @@ body.shift-pressed .shift-char {
     user-select: all; /* Ermöglicht einfaches Markieren des Textes */
 }
 
+/* Stil für den aktiven Text über dem Eingabefeld */
+.active-text-container {
+    background-color: var(--output-bg);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid #009933;
+    margin-bottom: 15px;
+}
+
+.active-text {
+    font-family: monospace;
+    line-height: 1.7;
+    font-size: 16px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: #00cc44;
+}
+
+/* Umbenennung von copy-btn zu set-active-btn und angepasster Stil */
+.set-active-btn {
+    background-color: var(--key-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.set-active-btn:hover {
+    background-color: var(--key-hover);
+}
+
+.set-active-btn:active {
+    background-color: var(--key-active-bg);
+    transform: translateY(1px);
+}
+
 .copy-btn {
     background-color: var(--key-bg);
     color: var(--text-color);
@@ -291,3 +330,4 @@ body.shift-pressed .shift-char {
         font-size: 8px;
     }
 }
+
