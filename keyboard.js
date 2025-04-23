@@ -449,6 +449,22 @@ function init() {
         updateOutput(this.value, document.getElementById('layout-select').value);
     });
     
+    // Event-Listener für "Kopieren"-Buttons
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const text = this.getAttribute('data-text');
+            inputField.value = text;
+            updateOutput(text, document.getElementById('layout-select').value);
+            inputField.focus();
+            // Text-Feedback für den Button
+            const originalText = this.textContent;
+            this.textContent = 'Kopiert!';
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 1000);
+        });
+    });
+    
     // Statusanzeige für Modifiertasten erstellen
     const container = document.querySelector('.virtual-keyboard');
     const modifierStatus = document.createElement('div');

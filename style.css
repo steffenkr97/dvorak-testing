@@ -20,6 +20,8 @@
     --debug-border: #ff9900;
     --debug-heading: #ff9900;
     --placeholder-color: #666;
+    --practice-item-bg: #242424;
+    --practice-text-bg: #1a1a1a;
 }
 
 body {
@@ -202,6 +204,74 @@ body.shift-pressed .shift-char {
 
 .debug-section li {
     margin-bottom: 5px;
+}
+
+/* Stil für den Übungsbereich */
+.practice-area {
+    margin-bottom: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.practice-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.practice-category {
+    flex: 1;
+    min-width: 250px;
+}
+
+.practice-item {
+    background-color: var(--practice-item-bg);
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    position: relative;
+    border-left: 4px solid var(--accent-color);
+}
+
+.practice-item h4 {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--heading-color);
+}
+
+.practice-text {
+    font-family: monospace;
+    background-color: var(--practice-text-bg);
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    line-height: 1.7;
+    font-size: 15px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    user-select: all; /* Ermöglicht einfaches Markieren des Textes */
+}
+
+.copy-btn {
+    background-color: var(--key-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.copy-btn:hover {
+    background-color: var(--key-hover);
+}
+
+.copy-btn:active {
+    background-color: var(--key-active-bg);
+    transform: translateY(1px);
 }
 
 @media (max-width: 600px) {
