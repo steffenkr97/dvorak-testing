@@ -116,7 +116,7 @@ textarea::placeholder {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     cursor: default;
     user-select: none;
-    transition: all 0.15s ease-in-out;
+    transition: all 0.08s ease-in-out;
     padding: 3px;
     position: relative;
 }

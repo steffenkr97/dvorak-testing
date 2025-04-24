@@ -13,8 +13,8 @@
         <div class="layout-selection">
             <label for="layout-select">Tastaturlayout wählen:</label>
             <select id="layout-select">
+                <option value="dvorak">DVORAK Typ 2 (Deutsch)</option>
                 <option value="qwertz">QWERTZ (Deutsch)</option>
-                <option value="dvorak">DVORAK Typ 2 für macOS</option>
             </select>
         </div>
 
@@ -23,7 +23,23 @@
             <p class="keyboard-info">Linke Ecke: Shift-Zeichen</p>
             <div id="keyboard-container"></div>
         </div>
-        
+
+        <div class="test-area">
+            <h2>Testbereich</h2>
+
+            <div class="active-text-container">
+                <h3>Aktiver Text:</h3>
+                <div id="active-text" class="active-text">Zum Tippen hier klicken oder einen Übungstext auswählen...</div>
+            </div>
+
+
+            <div class="output">
+                <h3>Ausgabe (gemäß gewähltem Layout):</h3>
+                <div id="output-text"></div>
+            </div>
+            <p>Tippe hier, um das ausgewählte Layout zu testen:</p>
+            <textarea id="input-field" rows="5" placeholder="Zum Tippen hier klicken..."></textarea>
+        </div>
         <div class="keyboard-instructions">
             <h3>Tastenkombinationen</h3>
             <ul>
@@ -31,22 +47,6 @@
             </ul>
         </div>
 
-        <div class="test-area">
-            <h2>Testbereich</h2>
-            
-            <div class="active-text-container">
-                <h3>Aktiver Text:</h3>
-                <div id="active-text" class="active-text">Zum Tippen hier klicken oder einen Übungstext auswählen...</div>
-            </div>
-            
-            <p>Tippe hier, um das ausgewählte Layout zu testen:</p>
-            <textarea id="input-field" rows="5" placeholder="Zum Tippen hier klicken..."></textarea>
-            
-            <div class="output">
-                <h3>Ausgabe (gemäß gewähltem Layout):</h3>
-                <div id="output-text"></div>
-            </div>
-        </div>
 
         <div class="practice-area">
             <h2>Übungsbereich</h2>
