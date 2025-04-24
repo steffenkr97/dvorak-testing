@@ -391,6 +391,26 @@ function updateOutput(text, layout) {
   }
 }
 
+// Logik zum Hervorheben von Buchstaben während der Eingabe
+function updateHighlighting(inputText, activeText) {
+    const activeTextElement = document.getElementById('active-text');
+    let highlightedContent = '';
+
+    for (let i = 0; i < activeText.length; i++) {
+        if (i < inputText.length) {
+            if (inputText[i] === activeText[i]) {
+                highlightedContent += `<span class="correct-char">${activeText[i]}</span>`;
+            } else {
+                highlightedContent += `<span class="incorrect-char">${activeText[i]}</span>`;
+            }
+        } else {
+            highlightedContent += activeText[i];
+        }
+    }
+
+    activeTextElement.innerHTML = highlightedContent;
+}
+
 // Hauptfunktion zum Initialisieren
 function init() {
   // Mappings erstellen
@@ -459,7 +479,11 @@ function init() {
 
   // Auch bei Input-Event die Ausgabe aktualisieren (wichtig für Paste-Operationen)
   inputField.addEventListener('input', function () {
-    updateOutput(this.value, document.getElementById('layout-select').value);
+    const activeText = document.getElementById('active-text').textContent;
+    const inputText = this.value;
+
+    updateHighlighting(inputText, activeText);
+    updateOutput(inputText, document.getElementById('layout-select').value);
   });
 
   // Event-Listener für "Als aktiven Text setzen"-Buttons (frühere "Kopieren"-Buttons)

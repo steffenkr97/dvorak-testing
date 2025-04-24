@@ -269,7 +269,7 @@ body.shift-pressed .shift-char {
     font-size: 16px;
     white-space: pre-wrap;
     overflow-x: auto;
-    color: #00cc44;
+    color: #ffffff; /* Standardfarbe auf Weiß geändert */
 }
 
 /* Umbenennung von copy-btn zu set-active-btn und angepasster Stil */
@@ -311,6 +311,14 @@ body.shift-pressed .shift-char {
 .copy-btn:active {
     background-color: var(--key-active-bg);
     transform: translateY(1px);
+}
+
+.correct-char {
+    color: #00cc44; /* Grün für korrekte Buchstaben */
+}
+
+.incorrect-char {
+    color: #cc0000; /* Rot für falsche Buchstaben */
 }
 
 @media (max-width: 600px) {
