@@ -195,6 +195,8 @@ const dvorakToQwerty = {};
 const qwertzToDvorak = {};
 const dvorakToQwertz = {};
 
+let activeText = '';
+
 // Erkennen, ob der Benutzer auf macOS oder Windows ist
 const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 
@@ -383,6 +385,8 @@ function updateOutput(text, layout) {
   // Ausgabe aktualisieren
   outputDiv.textContent = convertedText;
 
+  updateHighlighting(convertedText);
+
   // Für Debugging-Zwecke eine Kopie im localStorage speichern
   try {
     localStorage.setItem('lastConvertedText', convertedText);
@@ -392,23 +396,24 @@ function updateOutput(text, layout) {
 }
 
 // Logik zum Hervorheben von Buchstaben während der Eingabe
-function updateHighlighting(inputText, activeText) {
-    const activeTextElement = document.getElementById('active-text');
-    let highlightedContent = '';
+function updateHighlighting(inputText) {
+  const activeTextElement = document.getElementById('active-text');
+  const activeText = document.getElementById('active-text').textContent;
+  let highlightedContent = '';
 
-    for (let i = 0; i < activeText.length; i++) {
-        if (i < inputText.length) {
-            if (inputText[i] === activeText[i]) {
-                highlightedContent += `<span class="correct-char">${activeText[i]}</span>`;
-            } else {
-                highlightedContent += `<span class="incorrect-char">${activeText[i]}</span>`;
-            }
-        } else {
-            highlightedContent += activeText[i];
-        }
+  for (let i = 0; i < activeText.length; i++) {
+    if (i < inputText.length) {
+      if (inputText[i] === activeText[i]) {
+        highlightedContent += `<span class="correct-char">${activeText[i]}</span>`;
+      } else {
+        highlightedContent += `<span class="incorrect-char">${activeText[i]}</span>`;
+      }
+    } else {
+      highlightedContent += activeText[i];
     }
+  }
 
-    activeTextElement.innerHTML = highlightedContent;
+  activeTextElement.innerHTML = highlightedContent;
 }
 
 // Hauptfunktion zum Initialisieren
@@ -482,7 +487,7 @@ function init() {
     const activeText = document.getElementById('active-text').textContent;
     const inputText = this.value;
 
-    updateHighlighting(inputText, activeText);
+    // updateHighlighting(inputText, activeText);
     updateOutput(inputText, document.getElementById('layout-select').value);
   });
 
